@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coupan_id: 
+  send_date: 2016-02-12
+
+two:
+  coupan_id: 
+  send_date: 2016-02-12

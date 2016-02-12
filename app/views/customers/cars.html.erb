@@ -1,0 +1,17 @@
+<table class="table table-hover">
+   <thead>
+     <tr>
+       <th>Car Model</th>
+       <th>Color</th>
+       <th>Last Servicing Date</th>
+       <th>Repair Part</th>
+       <th>show</th>
+     </tr>
+   </thead>
+   <tbody>
+    <%= render :partial => 'car_detail', :collection => @cars %>
+   </tbody>
+ </table>
+
+
+

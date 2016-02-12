@@ -1,0 +1,1426 @@
+  [1m[36m (134.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (99.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20160212055641)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20160212055641)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20160212055641)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20160212055641)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20160212055641)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20160212055641)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212055641"]]
+  [1m[36m (124.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCustomers (20160212063729)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "customers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "phone" varchar, "address" text, "last_visit_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212063729"]]
+  [1m[36m (141.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCars (20160212064247)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "cars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "customer_id" integer, "car_model" varchar, "color" varchar, "last_servicing_date" date, "repair_part" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212064247"]]
+  [1m[36m (123.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCouponDates (20160212083534)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "coupon_dates" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "coupon_id" integer, "send_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212083534"]]
+  [1m[36m (132.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCoupons (20160212085009)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "coupons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "coupon_code" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212085009"]]
+  [1m[36m (140.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test0"], ["last_name", "0secomd"], ["phone", "9163487330"], ["email", "fcodetest0@yopmail.com"], ["address", "0 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:26.865149"], ["updated_at", "2016-02-12 11:36:26.865149"]]
+  [1m[35m (128.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 0"], ["customer_id", 1], ["created_at", "2016-02-12 11:36:27.015608"], ["updated_at", "2016-02-12 11:36:27.015608"]]
+  [1m[36m (105.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 1], ["created_at", "2016-02-12 11:36:27.122991"], ["updated_at", "2016-02-12 11:36:27.122991"]]
+  [1m[35m (123.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 2"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 2"], ["customer_id", 1], ["created_at", "2016-02-12 11:36:27.248612"], ["updated_at", "2016-02-12 11:36:27.248612"]]
+  [1m[36m (123.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 3"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 3"], ["customer_id", 1], ["created_at", "2016-02-12 11:36:27.374169"], ["updated_at", "2016-02-12 11:36:27.374169"]]
+  [1m[35m (115.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test1"], ["last_name", "1secomd"], ["phone", "8395436244"], ["email", "fcodetest1@yopmail.com"], ["address", "1 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:27.491328"], ["updated_at", "2016-02-12 11:36:27.491328"]]
+  [1m[36m (133.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 2], ["created_at", "2016-02-12 11:36:27.627100"], ["updated_at", "2016-02-12 11:36:27.627100"]]
+  [1m[35m (131.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 2], ["created_at", "2016-02-12 11:36:27.760856"], ["updated_at", "2016-02-12 11:36:27.760856"]]
+  [1m[36m (148.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 2"], ["customer_id", 2], ["created_at", "2016-02-12 11:36:27.911503"], ["updated_at", "2016-02-12 11:36:27.911503"]]
+  [1m[35m (140.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 3"], ["customer_id", 2], ["created_at", "2016-02-12 11:36:28.053863"], ["updated_at", "2016-02-12 11:36:28.053863"]]
+  [1m[36m (140.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 4"], ["customer_id", 2], ["created_at", "2016-02-12 11:36:28.196127"], ["updated_at", "2016-02-12 11:36:28.196127"]]
+  [1m[35m (132.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 5"], ["customer_id", 2], ["created_at", "2016-02-12 11:36:28.331691"], ["updated_at", "2016-02-12 11:36:28.331691"]]
+  [1m[36m (120.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 6"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 6"], ["customer_id", 2], ["created_at", "2016-02-12 11:36:28.455807"], ["updated_at", "2016-02-12 11:36:28.455807"]]
+  [1m[35m (123.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test2"], ["last_name", "2secomd"], ["phone", "6697395374"], ["email", "fcodetest2@yopmail.com"], ["address", "2 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:28.581274"], ["updated_at", "2016-02-12 11:36:28.581274"]]
+  [1m[36m (123.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 3], ["created_at", "2016-02-12 11:36:28.707451"], ["updated_at", "2016-02-12 11:36:28.707451"]]
+  [1m[35m (123.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 3], ["created_at", "2016-02-12 11:36:28.832870"], ["updated_at", "2016-02-12 11:36:28.832870"]]
+  [1m[36m (125.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 3], ["created_at", "2016-02-12 11:36:28.959839"], ["updated_at", "2016-02-12 11:36:28.959839"]]
+  [1m[35m (140.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 3"], ["customer_id", 3], ["created_at", "2016-02-12 11:36:29.102129"], ["updated_at", "2016-02-12 11:36:29.102129"]]
+  [1m[36m (148.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 4"], ["customer_id", 3], ["created_at", "2016-02-12 11:36:29.252786"], ["updated_at", "2016-02-12 11:36:29.252786"]]
+  [1m[35m (140.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 5"], ["customer_id", 3], ["created_at", "2016-02-12 11:36:29.395183"], ["updated_at", "2016-02-12 11:36:29.395183"]]
+  [1m[36m (140.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test3"], ["last_name", "3secomd"], ["phone", "2577363879"], ["email", "fcodetest3@yopmail.com"], ["address", "3 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:29.537296"], ["updated_at", "2016-02-12 11:36:29.537296"]]
+  [1m[35m (123.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 0"], ["customer_id", 4], ["created_at", "2016-02-12 11:36:29.663409"], ["updated_at", "2016-02-12 11:36:29.663409"]]
+  [1m[36m (123.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 4], ["created_at", "2016-02-12 11:36:29.788805"], ["updated_at", "2016-02-12 11:36:29.788805"]]
+  [1m[35m (123.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 2"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 2"], ["customer_id", 4], ["created_at", "2016-02-12 11:36:29.914482"], ["updated_at", "2016-02-12 11:36:29.914482"]]
+  [1m[36m (115.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 3"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 3"], ["customer_id", 4], ["created_at", "2016-02-12 11:36:30.031909"], ["updated_at", "2016-02-12 11:36:30.031909"]]
+  [1m[35m (123.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test4"], ["last_name", "4secomd"], ["phone", "3824131121"], ["email", "fcodetest4@yopmail.com"], ["address", "4 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:30.157287"], ["updated_at", "2016-02-12 11:36:30.157287"]]
+  [1m[36m (132.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 5], ["created_at", "2016-02-12 11:36:30.291711"], ["updated_at", "2016-02-12 11:36:30.291711"]]
+  [1m[35m (266.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 5], ["created_at", "2016-02-12 11:36:30.559980"], ["updated_at", "2016-02-12 11:36:30.559980"]]
+  [1m[36m (273.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 5], ["created_at", "2016-02-12 11:36:30.835487"], ["updated_at", "2016-02-12 11:36:30.835487"]]
+  [1m[35m (132.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 3"], ["customer_id", 5], ["created_at", "2016-02-12 11:36:30.969631"], ["updated_at", "2016-02-12 11:36:30.969631"]]
+  [1m[36m (123.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 4"], ["customer_id", 5], ["created_at", "2016-02-12 11:36:31.095214"], ["updated_at", "2016-02-12 11:36:31.095214"]]
+  [1m[35m (132.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 5"], ["customer_id", 5], ["created_at", "2016-02-12 11:36:31.229224"], ["updated_at", "2016-02-12 11:36:31.229224"]]
+  [1m[36m (123.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test5"], ["last_name", "5secomd"], ["phone", "8251854153"], ["email", "fcodetest5@yopmail.com"], ["address", "5 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:31.354706"], ["updated_at", "2016-02-12 11:36:31.354706"]]
+  [1m[35m (115.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 0"], ["customer_id", 6], ["created_at", "2016-02-12 11:36:31.472547"], ["updated_at", "2016-02-12 11:36:31.472547"]]
+  [1m[36m (123.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 6], ["created_at", "2016-02-12 11:36:31.598013"], ["updated_at", "2016-02-12 11:36:31.598013"]]
+  [1m[35m (123.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test6"], ["last_name", "6secomd"], ["phone", "3772568953"], ["email", "fcodetest6@yopmail.com"], ["address", "6 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:31.723468"], ["updated_at", "2016-02-12 11:36:31.723468"]]
+  [1m[36m (123.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:31.849662"], ["updated_at", "2016-02-12 11:36:31.849662"]]
+  [1m[35m (133.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 1"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:31.984707"], ["updated_at", "2016-02-12 11:36:31.984707"]]
+  [1m[36m (148.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:32.135381"], ["updated_at", "2016-02-12 11:36:32.135381"]]
+  [1m[35m (140.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 3"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:32.277691"], ["updated_at", "2016-02-12 11:36:32.277691"]]
+  [1m[36m (132.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 4"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:32.411774"], ["updated_at", "2016-02-12 11:36:32.411774"]]
+  [1m[35m (123.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 5"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:32.537523"], ["updated_at", "2016-02-12 11:36:32.537523"]]
+  [1m[36m (123.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 6"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 6"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:32.663215"], ["updated_at", "2016-02-12 11:36:32.663215"]]
+  [1m[35m (123.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 7"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 7"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:32.788863"], ["updated_at", "2016-02-12 11:36:32.788863"]]
+  [1m[36m (131.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 8"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 8"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:32.922938"], ["updated_at", "2016-02-12 11:36:32.922938"]]
+  [1m[35m (123.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 9"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 9"], ["customer_id", 7], ["created_at", "2016-02-12 11:36:33.048528"], ["updated_at", "2016-02-12 11:36:33.048528"]]
+  [1m[36m (256.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test7"], ["last_name", "7secomd"], ["phone", "7112737076"], ["email", "fcodetest7@yopmail.com"], ["address", "7 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:33.307170"], ["updated_at", "2016-02-12 11:36:33.307170"]]
+  [1m[35m (266.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 0"], ["customer_id", 8], ["created_at", "2016-02-12 11:36:33.576052"], ["updated_at", "2016-02-12 11:36:33.576052"]]
+  [1m[36m (140.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 8], ["created_at", "2016-02-12 11:36:33.718364"], ["updated_at", "2016-02-12 11:36:33.718364"]]
+  [1m[35m (131.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 2"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 8], ["created_at", "2016-02-12 11:36:33.852133"], ["updated_at", "2016-02-12 11:36:33.852133"]]
+  [1m[36m (123.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 3"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 3"], ["customer_id", 8], ["created_at", "2016-02-12 11:36:33.978002"], ["updated_at", "2016-02-12 11:36:33.978002"]]
+  [1m[35m (123.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test8"], ["last_name", "8secomd"], ["phone", "7211696967"], ["email", "fcodetest8@yopmail.com"], ["address", "8 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:34.103411"], ["updated_at", "2016-02-12 11:36:34.103411"]]
+  [1m[36m (123.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 9], ["created_at", "2016-02-12 11:36:34.229536"], ["updated_at", "2016-02-12 11:36:34.229536"]]
+  [1m[35m (131.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test9"], ["last_name", "9secomd"], ["phone", "2278765308"], ["email", "fcodetest9@yopmail.com"], ["address", "9 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:36:34.363063"], ["updated_at", "2016-02-12 11:36:34.363063"]]
+  [1m[36m (166.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 10], ["created_at", "2016-02-12 11:36:34.531478"], ["updated_at", "2016-02-12 11:36:34.531478"]]
+  [1m[35m (140.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 10], ["created_at", "2016-02-12 11:36:34.674016"], ["updated_at", "2016-02-12 11:36:34.674016"]]
+  [1m[36m (147.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 10], ["created_at", "2016-02-12 11:36:34.824163"], ["updated_at", "2016-02-12 11:36:34.824163"]]
+  [1m[35m (133.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 3"], ["customer_id", 10], ["created_at", "2016-02-12 11:36:34.959466"], ["updated_at", "2016-02-12 11:36:34.959466"]]
+  [1m[36m (123.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 4"], ["customer_id", 10], ["created_at", "2016-02-12 11:36:35.085169"], ["updated_at", "2016-02-12 11:36:35.085169"]]
+  [1m[35m (123.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 5"], ["customer_id", 10], ["created_at", "2016-02-12 11:36:35.211137"], ["updated_at", "2016-02-12 11:36:35.211137"]]
+  [1m[36m (131.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 6"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 6"], ["customer_id", 10], ["created_at", "2016-02-12 11:36:35.344887"], ["updated_at", "2016-02-12 11:36:35.344887"]]
+  [1m[35m (123.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 7"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 7"], ["customer_id", 10], ["created_at", "2016-02-12 11:36:35.470665"], ["updated_at", "2016-02-12 11:36:35.470665"]]
+  [1m[36m (132.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.1ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "REEFYWDBUUNSSLQF"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 0"], ["created_at", "2016-02-12 11:36:35.608510"], ["updated_at", "2016-02-12 11:36:35.608510"], ["coupon_code", "REEFYWDBUUNSSLQF"]]
+  [1m[36m (133.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-12"], ["coupon_id", 1], ["created_at", "2016-02-12 11:36:35.752390"], ["updated_at", "2016-02-12 11:36:35.752390"]]
+  [1m[35m (135.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "FMMBETZXEDUPKME"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 1"], ["created_at", "2016-02-12 11:36:35.888890"], ["updated_at", "2016-02-12 11:36:35.888890"], ["coupon_code", "FMMBETZXEDUPKME"]]
+  [1m[35m (140.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-11"], ["coupon_id", 2], ["created_at", "2016-02-12 11:36:36.031824"], ["updated_at", "2016-02-12 11:36:36.031824"]]
+  [1m[36m (356.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-11"], ["coupon_id", 2], ["created_at", "2016-02-12 11:36:36.390239"], ["updated_at", "2016-02-12 11:36:36.390239"]]
+  [1m[35m (133.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-11"], ["coupon_id", 2], ["created_at", "2016-02-12 11:36:36.525608"], ["updated_at", "2016-02-12 11:36:36.525608"]]
+  [1m[36m (124.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.1ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "VOEKUEBCOXFHQFSM"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 2"], ["created_at", "2016-02-12 11:36:36.651018"], ["updated_at", "2016-02-12 11:36:36.651018"], ["coupon_code", "VOEKUEBCOXFHQFSM"]]
+  [1m[36m (132.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-10"], ["coupon_id", 3], ["created_at", "2016-02-12 11:36:36.785518"], ["updated_at", "2016-02-12 11:36:36.785518"]]
+  [1m[35m (132.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-10"], ["coupon_id", 3], ["created_at", "2016-02-12 11:36:36.919253"], ["updated_at", "2016-02-12 11:36:36.919253"]]
+  [1m[36m (124.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-10"], ["coupon_id", 3], ["created_at", "2016-02-12 11:36:37.044893"], ["updated_at", "2016-02-12 11:36:37.044893"]]
+  [1m[35m (124.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "ZZYAFRRJODPMLG"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 3"], ["created_at", "2016-02-12 11:36:37.170307"], ["updated_at", "2016-02-12 11:36:37.170307"], ["coupon_code", "ZZYAFRRJODPMLG"]]
+  [1m[35m (132.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-09"], ["coupon_id", 4], ["created_at", "2016-02-12 11:36:37.304867"], ["updated_at", "2016-02-12 11:36:37.304867"]]
+  [1m[36m (140.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-09"], ["coupon_id", 4], ["created_at", "2016-02-12 11:36:37.446919"], ["updated_at", "2016-02-12 11:36:37.446919"]]
+  [1m[35m (132.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "XSIPVDPZOOJMTH"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 4"], ["created_at", "2016-02-12 11:36:37.580678"], ["updated_at", "2016-02-12 11:36:37.580678"], ["coupon_code", "XSIPVDPZOOJMTH"]]
+  [1m[35m (190.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-08"], ["coupon_id", 5], ["created_at", "2016-02-12 11:36:37.773519"], ["updated_at", "2016-02-12 11:36:37.773519"]]
+  [1m[36m (133.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-08"], ["coupon_id", 5], ["created_at", "2016-02-12 11:36:37.908565"], ["updated_at", "2016-02-12 11:36:37.908565"]]
+  [1m[35m (123.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "ZVQLVXBIUJZO"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 5"], ["created_at", "2016-02-12 11:36:38.033964"], ["updated_at", "2016-02-12 11:36:38.033964"], ["coupon_code", "ZVQLVXBIUJZO"]]
+  [1m[35m (132.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-07"], ["coupon_id", 6], ["created_at", "2016-02-12 11:36:38.168485"], ["updated_at", "2016-02-12 11:36:38.168485"]]
+  [1m[36m (123.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.1ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "NEXVOWCQNCYRJC"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 6"], ["created_at", "2016-02-12 11:36:38.293675"], ["updated_at", "2016-02-12 11:36:38.293675"], ["coupon_code", "NEXVOWCQNCYRJC"]]
+  [1m[36m (123.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-06"], ["coupon_id", 7], ["created_at", "2016-02-12 11:36:38.419762"], ["updated_at", "2016-02-12 11:36:38.419762"]]
+  [1m[35m (373.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-06"], ["coupon_id", 7], ["created_at", "2016-02-12 11:36:38.794970"], ["updated_at", "2016-02-12 11:36:38.794970"]]
+  [1m[36m (149.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.1ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "PWIAIOCPUEGGLLM"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 7"], ["created_at", "2016-02-12 11:36:38.945431"], ["updated_at", "2016-02-12 11:36:38.945431"], ["coupon_code", "PWIAIOCPUEGGLLM"]]
+  [1m[36m (132.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-05"], ["coupon_id", 8], ["created_at", "2016-02-12 11:36:39.079879"], ["updated_at", "2016-02-12 11:36:39.079879"]]
+  [1m[35m (148.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-05"], ["coupon_id", 8], ["created_at", "2016-02-12 11:36:39.230339"], ["updated_at", "2016-02-12 11:36:39.230339"]]
+  [1m[36m (365.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-05"], ["coupon_id", 8], ["created_at", "2016-02-12 11:36:39.597338"], ["updated_at", "2016-02-12 11:36:39.597338"]]
+  [1m[35m (125.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "DEIMRJNALUV"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 8"], ["created_at", "2016-02-12 11:36:39.724105"], ["updated_at", "2016-02-12 11:36:39.724105"], ["coupon_code", "DEIMRJNALUV"]]
+  [1m[35m (132.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-04"], ["coupon_id", 9], ["created_at", "2016-02-12 11:36:39.858742"], ["updated_at", "2016-02-12 11:36:39.858742"]]
+  [1m[36m (131.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.1ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "CXRSZSASJYXSMYYO"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 9"], ["created_at", "2016-02-12 11:36:39.992132"], ["updated_at", "2016-02-12 11:36:39.992132"], ["coupon_code", "CXRSZSASJYXSMYYO"]]
+  [1m[36m (132.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-03"], ["coupon_id", 10], ["created_at", "2016-02-12 11:36:40.126731"], ["updated_at", "2016-02-12 11:36:40.126731"]]
+  [1m[35m (140.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-03"], ["coupon_id", 10], ["created_at", "2016-02-12 11:36:40.269037"], ["updated_at", "2016-02-12 11:36:40.269037"]]
+  [1m[36m (174.0ms)[0m  [1mcommit transaction[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "customers"[0m
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-02-12 17:07:24 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fSrjJklkpR6K4F8Cj+/Ny87rtwS/jtRQW4/ge6hQ4Yr5XQlrWvmx3n/qbiQGosofIO3i8Tvp56FAKvQl4Ipkhw==", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+Completed 401 Unauthorized in 21ms (ActiveRecord: 0.7ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fSrjJklkpR6K4F8Cj+/Ny87rtwS/jtRQW4/ge6hQ4Yr5XQlrWvmx3n/qbiQGosofIO3i8Tvp56FAKvQl4Ipkhw==", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered /home/rails/.rvm/gems/ruby-2.3.0@service_center/gems/devise-3.5.6/app/views/devise/shared/_links.html.erb (8.0ms)
+  Rendered /home/rails/.rvm/gems/ruby-2.3.0@service_center/gems/devise-3.5.6/app/views/devise/sessions/new.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 352ms (Views: 253.1ms | ActiveRecord: 0.0ms)
+  [1m[35mCustomer Load (0.6ms)[0m  SELECT "customers".* FROM "customers"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCar Load (0.2ms)[0m  SELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 2]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 4]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "customers" WHERE "customers"."id" = ?[0m  [["id", 1]]
+  [1m[35m (121.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 2]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 5]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 6]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 7]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 8]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 9]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 10]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 11]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "customers" WHERE "customers"."id" = ?  [["id", 2]]
+  [1m[36m (129.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 3]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 12]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 13]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 14]]
+  [1m[36mSQL (9.7ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 15]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 16]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 17]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "customers" WHERE "customers"."id" = ?  [["id", 3]]
+  [1m[36m (153.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 4]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 18]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 19]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 20]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 21]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "customers" WHERE "customers"."id" = ?  [["id", 4]]
+  [1m[36m (147.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 5]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 22]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 23]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 24]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 25]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 26]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 27]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "customers" WHERE "customers"."id" = ?  [["id", 5]]
+  [1m[36m (147.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 6]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 28]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 29]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "customers" WHERE "customers"."id" = ?  [["id", 6]]
+  [1m[36m (139.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 7]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 30]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 31]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 32]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 33]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 34]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 35]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 36]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 37]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 38]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 39]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "customers" WHERE "customers"."id" = ?  [["id", 7]]
+  [1m[36m (129.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 8]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 40]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 41]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 42]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 43]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "customers" WHERE "customers"."id" = ?  [["id", 8]]
+  [1m[36m (131.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCar Load (0.1ms)[0m  [1mSELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 9]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 44]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "customers" WHERE "customers"."id" = ?[0m  [["id", 9]]
+  [1m[35m (116.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCar Load (0.1ms)[0m  SELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 10]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 45]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 46]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 47]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 48]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 49]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 50]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 51]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 52]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "customers" WHERE "customers"."id" = ?[0m  [["id", 10]]
+  [1m[35m (122.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "admin@example.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "admin@example.com"], ["encrypted_password", "$2a$10$jWFgpl7c1gNkCz5kPDtaXeN1cVvCX1ITX3WQjPkAGPY.lhNa6IGpO"], ["created_at", "2016-02-12 11:38:54.789482"], ["updated_at", "2016-02-12 11:38:54.789482"]]
+  [1m[35m (168.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test0"], ["last_name", "0secomd"], ["phone", "5575045333"], ["email", "fcodetest0@yopmail.com"], ["address", "0 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:38:54.968195"], ["updated_at", "2016-02-12 11:38:54.968195"]]
+  [1m[36m (123.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 0"], ["customer_id", 11], ["created_at", "2016-02-12 11:38:55.110864"], ["updated_at", "2016-02-12 11:38:55.110864"]]
+  [1m[35m (140.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 11], ["created_at", "2016-02-12 11:38:55.253118"], ["updated_at", "2016-02-12 11:38:55.253118"]]
+  [1m[36m (132.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 2"], ["customer_id", 11], ["created_at", "2016-02-12 11:38:55.386976"], ["updated_at", "2016-02-12 11:38:55.386976"]]
+  [1m[35m (132.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 3"], ["customer_id", 11], ["created_at", "2016-02-12 11:38:55.521019"], ["updated_at", "2016-02-12 11:38:55.521019"]]
+  [1m[36m (123.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test1"], ["last_name", "1secomd"], ["phone", "6639989729"], ["email", "fcodetest1@yopmail.com"], ["address", "1 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:38:55.646541"], ["updated_at", "2016-02-12 11:38:55.646541"]]
+  [1m[35m (115.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 12], ["created_at", "2016-02-12 11:38:55.764304"], ["updated_at", "2016-02-12 11:38:55.764304"]]
+  [1m[36m (124.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 12], ["created_at", "2016-02-12 11:38:55.891054"], ["updated_at", "2016-02-12 11:38:55.891054"]]
+  [1m[35m (123.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test2"], ["last_name", "2secomd"], ["phone", "6230338741"], ["email", "fcodetest2@yopmail.com"], ["address", "2 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:38:56.016641"], ["updated_at", "2016-02-12 11:38:56.016641"]]
+  [1m[36m (148.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 0"], ["customer_id", 13], ["created_at", "2016-02-12 11:38:56.167591"], ["updated_at", "2016-02-12 11:38:56.167591"]]
+  [1m[35m (148.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 13], ["created_at", "2016-02-12 11:38:56.318067"], ["updated_at", "2016-02-12 11:38:56.318067"]]
+  [1m[36m (140.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test3"], ["last_name", "3secomd"], ["phone", "5503862352"], ["email", "fcodetest3@yopmail.com"], ["address", "3 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:38:56.460191"], ["updated_at", "2016-02-12 11:38:56.460191"]]
+  [1m[35m (132.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 14], ["created_at", "2016-02-12 11:38:56.594608"], ["updated_at", "2016-02-12 11:38:56.594608"]]
+  [1m[36m (131.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 14], ["created_at", "2016-02-12 11:38:56.728399"], ["updated_at", "2016-02-12 11:38:56.728399"]]
+  [1m[35m (115.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 2"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 14], ["created_at", "2016-02-12 11:38:56.846411"], ["updated_at", "2016-02-12 11:38:56.846411"]]
+  [1m[36m (122.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 3"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 3"], ["customer_id", 14], ["created_at", "2016-02-12 11:38:56.972524"], ["updated_at", "2016-02-12 11:38:56.972524"]]
+  [1m[35m (122.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 4"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 4"], ["customer_id", 14], ["created_at", "2016-02-12 11:38:57.097106"], ["updated_at", "2016-02-12 11:38:57.097106"]]
+  [1m[36m (274.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 5"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 5"], ["customer_id", 14], ["created_at", "2016-02-12 11:38:57.373952"], ["updated_at", "2016-02-12 11:38:57.373952"]]
+  [1m[35m (232.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test4"], ["last_name", "4secomd"], ["phone", "3955800779"], ["email", "fcodetest4@yopmail.com"], ["address", "4 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:38:57.607660"], ["updated_at", "2016-02-12 11:38:57.607660"]]
+  [1m[36m (140.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 0"], ["customer_id", 15], ["created_at", "2016-02-12 11:38:57.750360"], ["updated_at", "2016-02-12 11:38:57.750360"]]
+  [1m[35m (148.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 1"], ["customer_id", 15], ["created_at", "2016-02-12 11:38:57.900799"], ["updated_at", "2016-02-12 11:38:57.900799"]]
+  [1m[36m (148.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 2"], ["customer_id", 15], ["created_at", "2016-02-12 11:38:58.051491"], ["updated_at", "2016-02-12 11:38:58.051491"]]
+  [1m[35m (140.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 3"], ["customer_id", 15], ["created_at", "2016-02-12 11:38:58.193880"], ["updated_at", "2016-02-12 11:38:58.193880"]]
+  [1m[36m (149.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 4"], ["customer_id", 15], ["created_at", "2016-02-12 11:38:58.344998"], ["updated_at", "2016-02-12 11:38:58.344998"]]
+  [1m[35m (123.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test5"], ["last_name", "5secomd"], ["phone", "1447981083"], ["email", "fcodetest5@yopmail.com"], ["address", "5 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:38:58.470532"], ["updated_at", "2016-02-12 11:38:58.470532"]]
+  [1m[36m (123.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 16], ["created_at", "2016-02-12 11:38:58.596629"], ["updated_at", "2016-02-12 11:38:58.596629"]]
+  [1m[35m (123.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 16], ["created_at", "2016-02-12 11:38:58.722280"], ["updated_at", "2016-02-12 11:38:58.722280"]]
+  [1m[36m (158.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 2"], ["customer_id", 16], ["created_at", "2016-02-12 11:38:58.882328"], ["updated_at", "2016-02-12 11:38:58.882328"]]
+  [1m[35m (140.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 3"], ["customer_id", 16], ["created_at", "2016-02-12 11:38:59.024796"], ["updated_at", "2016-02-12 11:38:59.024796"]]
+  [1m[36m (137.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 4"], ["customer_id", 16], ["created_at", "2016-02-12 11:38:59.167024"], ["updated_at", "2016-02-12 11:38:59.167024"]]
+  [1m[35m (131.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 5"], ["customer_id", 16], ["created_at", "2016-02-12 11:38:59.300954"], ["updated_at", "2016-02-12 11:38:59.300954"]]
+  [1m[36m (115.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 6"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 6"], ["customer_id", 16], ["created_at", "2016-02-12 11:38:59.418377"], ["updated_at", "2016-02-12 11:38:59.418377"]]
+  [1m[35m (115.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test6"], ["last_name", "6secomd"], ["phone", "4357210872"], ["email", "fcodetest6@yopmail.com"], ["address", "6 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:38:59.535587"], ["updated_at", "2016-02-12 11:38:59.535587"]]
+  [1m[36m (115.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 0"], ["customer_id", 17], ["created_at", "2016-02-12 11:38:59.653408"], ["updated_at", "2016-02-12 11:38:59.653408"]]
+  [1m[35m (140.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 17], ["created_at", "2016-02-12 11:38:59.795562"], ["updated_at", "2016-02-12 11:38:59.795562"]]
+  [1m[36m (131.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 17], ["created_at", "2016-02-12 11:38:59.929396"], ["updated_at", "2016-02-12 11:38:59.929396"]]
+  [1m[35m (140.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 3"], ["customer_id", 17], ["created_at", "2016-02-12 11:39:00.072296"], ["updated_at", "2016-02-12 11:39:00.072296"]]
+  [1m[36m (132.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 4"], ["customer_id", 17], ["created_at", "2016-02-12 11:39:00.207044"], ["updated_at", "2016-02-12 11:39:00.207044"]]
+  [1m[35m (148.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 5"], ["customer_id", 17], ["created_at", "2016-02-12 11:39:00.357716"], ["updated_at", "2016-02-12 11:39:00.357716"]]
+  [1m[36m (140.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 6"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 6"], ["customer_id", 17], ["created_at", "2016-02-12 11:39:00.500072"], ["updated_at", "2016-02-12 11:39:00.500072"]]
+  [1m[35m (365.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 7"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 7"], ["customer_id", 17], ["created_at", "2016-02-12 11:39:00.867081"], ["updated_at", "2016-02-12 11:39:00.867081"]]
+  [1m[36m (123.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 8"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 8"], ["customer_id", 17], ["created_at", "2016-02-12 11:39:00.992786"], ["updated_at", "2016-02-12 11:39:00.992786"]]
+  [1m[35m (123.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test7"], ["last_name", "7secomd"], ["phone", "3787669677"], ["email", "fcodetest7@yopmail.com"], ["address", "7 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:39:01.119626"], ["updated_at", "2016-02-12 11:39:01.119626"]]
+  [1m[36m (129.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 18], ["created_at", "2016-02-12 11:39:01.252826"], ["updated_at", "2016-02-12 11:39:01.252826"]]
+  [1m[35m (131.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 1"], ["customer_id", 18], ["created_at", "2016-02-12 11:39:01.386366"], ["updated_at", "2016-02-12 11:39:01.386366"]]
+  [1m[36m (132.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 18], ["created_at", "2016-02-12 11:39:01.520327"], ["updated_at", "2016-02-12 11:39:01.520327"]]
+  [1m[35m (140.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test8"], ["last_name", "8secomd"], ["phone", "9346557387"], ["email", "fcodetest8@yopmail.com"], ["address", "8 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:39:01.662391"], ["updated_at", "2016-02-12 11:39:01.662391"]]
+  [1m[36m (148.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 0"], ["customer_id", 19], ["created_at", "2016-02-12 11:39:01.813483"], ["updated_at", "2016-02-12 11:39:01.813483"]]
+  [1m[35m (149.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 19], ["created_at", "2016-02-12 11:39:01.965186"], ["updated_at", "2016-02-12 11:39:01.965186"]]
+  [1m[36m (132.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 2"], ["customer_id", 19], ["created_at", "2016-02-12 11:39:02.099202"], ["updated_at", "2016-02-12 11:39:02.099202"]]
+  [1m[35m (123.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test9"], ["last_name", "9secomd"], ["phone", "8468972516"], ["email", "fcodetest9@yopmail.com"], ["address", "9 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 11:39:02.224826"], ["updated_at", "2016-02-12 11:39:02.224826"]]
+  [1m[36m (123.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 0"], ["customer_id", 20], ["created_at", "2016-02-12 11:39:02.351028"], ["updated_at", "2016-02-12 11:39:02.351028"]]
+  [1m[35m (123.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "ZXJASABUQK"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 0"], ["created_at", "2016-02-12 11:39:02.480069"], ["updated_at", "2016-02-12 11:39:02.480069"], ["coupon_code", "ZXJASABUQK"]]
+  [1m[35m (136.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-12"], ["coupon_id", 11], ["created_at", "2016-02-12 11:39:02.624142"], ["updated_at", "2016-02-12 11:39:02.624142"]]
+  [1m[36m (168.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-12"], ["coupon_id", 11], ["created_at", "2016-02-12 11:39:02.794268"], ["updated_at", "2016-02-12 11:39:02.794268"]]
+  [1m[35m (140.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-12"], ["coupon_id", 11], ["created_at", "2016-02-12 11:39:02.936518"], ["updated_at", "2016-02-12 11:39:02.936518"]]
+  [1m[36m (148.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.1ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "QEBLARJLZB"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 1"], ["created_at", "2016-02-12 11:39:03.086962"], ["updated_at", "2016-02-12 11:39:03.086962"], ["coupon_code", "QEBLARJLZB"]]
+  [1m[36m (148.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-11"], ["coupon_id", 12], ["created_at", "2016-02-12 11:39:03.238348"], ["updated_at", "2016-02-12 11:39:03.238348"]]
+  [1m[35m (133.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-11"], ["coupon_id", 12], ["created_at", "2016-02-12 11:39:03.373125"], ["updated_at", "2016-02-12 11:39:03.373125"]]
+  [1m[36m (124.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-11"], ["coupon_id", 12], ["created_at", "2016-02-12 11:39:03.498769"], ["updated_at", "2016-02-12 11:39:03.498769"]]
+  [1m[35m (124.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "CRVHCZXUILIWADGA"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 2"], ["created_at", "2016-02-12 11:39:03.624164"], ["updated_at", "2016-02-12 11:39:03.624164"], ["coupon_code", "CRVHCZXUILIWADGA"]]
+  [1m[35m (123.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-10"], ["coupon_id", 13], ["created_at", "2016-02-12 11:39:03.750439"], ["updated_at", "2016-02-12 11:39:03.750439"]]
+  [1m[36m (123.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-10"], ["coupon_id", 13], ["created_at", "2016-02-12 11:39:03.875976"], ["updated_at", "2016-02-12 11:39:03.875976"]]
+  [1m[35m (132.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "LEIXRRIY"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 3"], ["created_at", "2016-02-12 11:39:04.009639"], ["updated_at", "2016-02-12 11:39:04.009639"], ["coupon_code", "LEIXRRIY"]]
+  [1m[35m (140.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-09"], ["coupon_id", 14], ["created_at", "2016-02-12 11:39:04.152520"], ["updated_at", "2016-02-12 11:39:04.152520"]]
+  [1m[36m (148.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-09"], ["coupon_id", 14], ["created_at", "2016-02-12 11:39:04.303014"], ["updated_at", "2016-02-12 11:39:04.303014"]]
+  [1m[35m (148.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-09"], ["coupon_id", 14], ["created_at", "2016-02-12 11:39:04.453605"], ["updated_at", "2016-02-12 11:39:04.453605"]]
+  [1m[36m (520.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.1ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "UTPTXSFWXNSZXP"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 4"], ["created_at", "2016-02-12 11:39:04.975650"], ["updated_at", "2016-02-12 11:39:04.975650"], ["coupon_code", "UTPTXSFWXNSZXP"]]
+  [1m[36m (269.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-08"], ["coupon_id", 15], ["created_at", "2016-02-12 11:39:05.247773"], ["updated_at", "2016-02-12 11:39:05.247773"]]
+  [1m[35m (123.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-08"], ["coupon_id", 15], ["created_at", "2016-02-12 11:39:05.373071"], ["updated_at", "2016-02-12 11:39:05.373071"]]
+  [1m[36m (123.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-08"], ["coupon_id", 15], ["created_at", "2016-02-12 11:39:05.498689"], ["updated_at", "2016-02-12 11:39:05.498689"]]
+  [1m[35m (132.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "GTELEIISA"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 5"], ["created_at", "2016-02-12 11:39:05.632474"], ["updated_at", "2016-02-12 11:39:05.632474"], ["coupon_code", "GTELEIISA"]]
+  [1m[35m (132.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-07"], ["coupon_id", 16], ["created_at", "2016-02-12 11:39:05.767058"], ["updated_at", "2016-02-12 11:39:05.767058"]]
+  [1m[36m (140.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.1ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "BBEFRQZAT"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 6"], ["created_at", "2016-02-12 11:39:05.908867"], ["updated_at", "2016-02-12 11:39:05.908867"], ["coupon_code", "BBEFRQZAT"]]
+  [1m[36m (148.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-06"], ["coupon_id", 17], ["created_at", "2016-02-12 11:39:06.060088"], ["updated_at", "2016-02-12 11:39:06.060088"]]
+  [1m[35m (148.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "HMSROOJR"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 7"], ["created_at", "2016-02-12 11:39:06.210123"], ["updated_at", "2016-02-12 11:39:06.210123"], ["coupon_code", "HMSROOJR"]]
+  [1m[35m (140.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-05"], ["coupon_id", 18], ["created_at", "2016-02-12 11:39:06.353105"], ["updated_at", "2016-02-12 11:39:06.353105"]]
+  [1m[36m (131.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.1ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "UNIKCZLQVANQPX"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 8"], ["created_at", "2016-02-12 11:39:06.486405"], ["updated_at", "2016-02-12 11:39:06.486405"], ["coupon_code", "UNIKCZLQVANQPX"]]
+  [1m[36m (125.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-04"], ["coupon_id", 19], ["created_at", "2016-02-12 11:39:06.613933"], ["updated_at", "2016-02-12 11:39:06.613933"]]
+  [1m[35m (123.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-04"], ["coupon_id", 19], ["created_at", "2016-02-12 11:39:06.739330"], ["updated_at", "2016-02-12 11:39:06.739330"]]
+  [1m[36m (132.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-04"], ["coupon_id", 19], ["created_at", "2016-02-12 11:39:06.873337"], ["updated_at", "2016-02-12 11:39:06.873337"]]
+  [1m[35m (140.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.1ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "VBLBDRQXCK"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 9"], ["created_at", "2016-02-12 11:39:07.015322"], ["updated_at", "2016-02-12 11:39:07.015322"], ["coupon_code", "VBLBDRQXCK"]]
+  [1m[35m (131.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-03"], ["coupon_id", 20], ["created_at", "2016-02-12 11:39:07.150023"], ["updated_at", "2016-02-12 11:39:07.150023"]]
+  [1m[36m (148.6ms)[0m  [1mcommit transaction[0m
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/ZyzOL1+DOsc9oOn3Zo3PNnEr8c95uD9gVR7Npyf7jB561l1ruMYK+n8soFU1zDoN8L6MrmB0wya8W9o1EVrPQ==", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 137ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCustomer Load (0.2ms)[0m  SELECT "customers".* FROM "customers"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 11]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 12]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 14]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 15]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 16]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 17]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 18]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 19]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 20]]
+  Rendered customers/_customer_detail.html.erb (21.1ms)
+  Rendered customers/index.html.erb within layouts/application (29.9ms)
+Completed 200 OK in 243ms (Views: 235.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/dashboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/coupons.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/customers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/cars.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/bootstrap_and_overrides.self-2cb3834583dfbaf0a39c7139750bf963e05d79cbe811126997e013400be5d8dc.css?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-2fe4f8a61d73606fbcb036b41f380591906a4da65a9eb5ec0a210fe6980b2ca7.css?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/cars.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/coupons.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/customers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/dashboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2016-02-12 17:09:22 +0530
+
+
+Started GET "/customers/11" for 127.0.0.1 at 2016-02-12 17:09:24 +0530
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCustomer Load (0.2ms)[0m  SELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered customers/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 85ms (Views: 80.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (100.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (80.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20160212055641)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212055641"]]
+  [1m[36m (94.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCustomers (20160212063729)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE "customers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "phone" varchar, "address" text, "last_visit_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212063729"]]
+  [1m[36m (81.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCars (20160212064247)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "cars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "customer_id" integer, "car_model" varchar, "color" varchar, "last_servicing_date" date, "repair_part" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212064247"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCouponDates (20160212083534)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "coupon_dates" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "coupon_id" integer, "send_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212083534"]]
+  [1m[36m (86.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCoupons (20160212085009)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "coupons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "coupon_code" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160212085009"]]
+  [1m[36m (91.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "admin@example.com"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin@example.com' LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "admin@example.com"], ["encrypted_password", "$2a$10$YBiVK8L7ECld7GlmnorK6eHIcGNL5mtQtIT3IxiOc4gCcJoEFAlXy"], ["created_at", "2016-02-12 12:22:41.044949"], ["updated_at", "2016-02-12 12:22:41.044949"]]
+  [1m[35m (85.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test0"], ["last_name", "0secomd"], ["phone", "6659325766"], ["email", "fcodetest0@yopmail.com"], ["address", "0 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:41.149974"], ["updated_at", "2016-02-12 12:22:41.149974"]]
+  [1m[36m (125.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 0"], ["customer_id", 1], ["created_at", "2016-02-12 12:22:41.325023"], ["updated_at", "2016-02-12 12:22:41.325023"]]
+  [1m[35m (130.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 1"], ["customer_id", 1], ["created_at", "2016-02-12 12:22:41.455033"], ["updated_at", "2016-02-12 12:22:41.455033"]]
+  [1m[36m (90.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 1], ["created_at", "2016-02-12 12:22:41.555632"], ["updated_at", "2016-02-12 12:22:41.555632"]]
+  [1m[35m (100.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 3"], ["customer_id", 1], ["created_at", "2016-02-12 12:22:41.665650"], ["updated_at", "2016-02-12 12:22:41.665650"]]
+  [1m[36m (95.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 4"], ["customer_id", 1], ["created_at", "2016-02-12 12:22:41.765668"], ["updated_at", "2016-02-12 12:22:41.765668"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 5"], ["customer_id", 1], ["created_at", "2016-02-12 12:22:41.865687"], ["updated_at", "2016-02-12 12:22:41.865687"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 6"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 6"], ["customer_id", 1], ["created_at", "2016-02-12 12:22:41.965706"], ["updated_at", "2016-02-12 12:22:41.965706"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test1"], ["last_name", "1secomd"], ["phone", "8827770706"], ["email", "fcodetest1@yopmail.com"], ["address", "1 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:42.065725"], ["updated_at", "2016-02-12 12:22:42.065725"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 0"], ["customer_id", 2], ["created_at", "2016-02-12 12:22:42.165747"], ["updated_at", "2016-02-12 12:22:42.165747"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 2], ["created_at", "2016-02-12 12:22:42.265773"], ["updated_at", "2016-02-12 12:22:42.265773"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 2"], ["customer_id", 2], ["created_at", "2016-02-12 12:22:42.365786"], ["updated_at", "2016-02-12 12:22:42.365786"]]
+  [1m[35m (100.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 3"], ["customer_id", 2], ["created_at", "2016-02-12 12:22:42.475807"], ["updated_at", "2016-02-12 12:22:42.475807"]]
+  [1m[36m (100.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 4"], ["customer_id", 2], ["created_at", "2016-02-12 12:22:42.585832"], ["updated_at", "2016-02-12 12:22:42.585832"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 5"], ["customer_id", 2], ["created_at", "2016-02-12 12:22:42.680853"], ["updated_at", "2016-02-12 12:22:42.680853"]]
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 6"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 6"], ["customer_id", 2], ["created_at", "2016-02-12 12:22:42.785868"], ["updated_at", "2016-02-12 12:22:42.785868"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test2"], ["last_name", "2secomd"], ["phone", "1917176947"], ["email", "fcodetest2@yopmail.com"], ["address", "2 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:42.880893"], ["updated_at", "2016-02-12 12:22:42.880893"]]
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 3], ["created_at", "2016-02-12 12:22:42.985909"], ["updated_at", "2016-02-12 12:22:42.985909"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 3], ["created_at", "2016-02-12 12:22:43.080926"], ["updated_at", "2016-02-12 12:22:43.080926"]]
+  [1m[36m (94.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test3"], ["last_name", "3secomd"], ["phone", "3980189103"], ["email", "fcodetest3@yopmail.com"], ["address", "3 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:43.185623"], ["updated_at", "2016-02-12 12:22:43.185623"]]
+  [1m[35m (85.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 0"], ["customer_id", 4], ["created_at", "2016-02-12 12:22:43.280646"], ["updated_at", "2016-02-12 12:22:43.280646"]]
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 1"], ["customer_id", 4], ["created_at", "2016-02-12 12:22:43.370660"], ["updated_at", "2016-02-12 12:22:43.370660"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 2"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 2"], ["customer_id", 4], ["created_at", "2016-02-12 12:22:43.470686"], ["updated_at", "2016-02-12 12:22:43.470686"]]
+  [1m[36m (90.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (5.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test4"], ["last_name", "4secomd"], ["phone", "2241388116"], ["email", "fcodetest4@yopmail.com"], ["address", "4 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:43.571137"], ["updated_at", "2016-02-12 12:22:43.571137"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 5], ["created_at", "2016-02-12 12:22:43.676153"], ["updated_at", "2016-02-12 12:22:43.676153"]]
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 1"], ["customer_id", 5], ["created_at", "2016-02-12 12:22:43.771171"], ["updated_at", "2016-02-12 12:22:43.771171"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 2"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 2"], ["customer_id", 5], ["created_at", "2016-02-12 12:22:43.866188"], ["updated_at", "2016-02-12 12:22:43.866188"]]
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 3"], ["customer_id", 5], ["created_at", "2016-02-12 12:22:43.961242"], ["updated_at", "2016-02-12 12:22:43.961242"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 4"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 4"], ["customer_id", 5], ["created_at", "2016-02-12 12:22:44.056246"], ["updated_at", "2016-02-12 12:22:44.056246"]]
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 5"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 5"], ["customer_id", 5], ["created_at", "2016-02-12 12:22:44.156252"], ["updated_at", "2016-02-12 12:22:44.156252"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 6"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 6"], ["customer_id", 5], ["created_at", "2016-02-12 12:22:44.256268"], ["updated_at", "2016-02-12 12:22:44.256268"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test5"], ["last_name", "5secomd"], ["phone", "1084548230"], ["email", "fcodetest5@yopmail.com"], ["address", "5 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:44.356286"], ["updated_at", "2016-02-12 12:22:44.356286"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 6], ["created_at", "2016-02-12 12:22:44.451306"], ["updated_at", "2016-02-12 12:22:44.451306"]]
+  [1m[36m (80.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test6"], ["last_name", "6secomd"], ["phone", "5990706310"], ["email", "fcodetest6@yopmail.com"], ["address", "6 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:44.541321"], ["updated_at", "2016-02-12 12:22:44.541321"]]
+  [1m[35m (85.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 0"], ["customer_id", 7], ["created_at", "2016-02-12 12:22:44.636369"], ["updated_at", "2016-02-12 12:22:44.636369"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 1"], ["customer_id", 7], ["created_at", "2016-02-12 12:22:44.736360"], ["updated_at", "2016-02-12 12:22:44.736360"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 2"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 2"], ["customer_id", 7], ["created_at", "2016-02-12 12:22:44.831381"], ["updated_at", "2016-02-12 12:22:44.831381"]]
+  [1m[36m (110.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 3"], ["customer_id", 7], ["created_at", "2016-02-12 12:22:44.951432"], ["updated_at", "2016-02-12 12:22:44.951432"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (5.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 4"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 4"], ["customer_id", 7], ["created_at", "2016-02-12 12:22:45.056454"], ["updated_at", "2016-02-12 12:22:45.056454"]]
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 5"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 5"], ["customer_id", 7], ["created_at", "2016-02-12 12:22:45.151445"], ["updated_at", "2016-02-12 12:22:45.151445"]]
+  [1m[35m (100.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 6"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 6"], ["customer_id", 7], ["created_at", "2016-02-12 12:22:45.256464"], ["updated_at", "2016-02-12 12:22:45.256464"]]
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 7"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 7"], ["customer_id", 7], ["created_at", "2016-02-12 12:22:45.361490"], ["updated_at", "2016-02-12 12:22:45.361490"]]
+  [1m[35m (100.1ms)[0m  commit transaction
+  [1m[36m (5.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test7"], ["last_name", "7secomd"], ["phone", "8309203745"], ["email", "fcodetest7@yopmail.com"], ["address", "7 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:45.466511"], ["updated_at", "2016-02-12 12:22:45.466511"]]
+  [1m[36m (100.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 8], ["created_at", "2016-02-12 12:22:45.576528"], ["updated_at", "2016-02-12 12:22:45.576528"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "green"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 8], ["created_at", "2016-02-12 12:22:45.676549"], ["updated_at", "2016-02-12 12:22:45.676549"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 2"], ["customer_id", 8], ["created_at", "2016-02-12 12:22:45.776596"], ["updated_at", "2016-02-12 12:22:45.776596"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 3"], ["customer_id", 8], ["created_at", "2016-02-12 12:22:45.871587"], ["updated_at", "2016-02-12 12:22:45.871587"]]
+  [1m[36m (105.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "white"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 4"], ["customer_id", 8], ["created_at", "2016-02-12 12:22:45.986637"], ["updated_at", "2016-02-12 12:22:45.986637"]]
+  [1m[35m (100.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 5"], ["customer_id", 8], ["created_at", "2016-02-12 12:22:46.091657"], ["updated_at", "2016-02-12 12:22:46.091657"]]
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 6"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 6"], ["customer_id", 8], ["created_at", "2016-02-12 12:22:46.196658"], ["updated_at", "2016-02-12 12:22:46.196658"]]
+  [1m[35m (105.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 7"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 7"], ["customer_id", 8], ["created_at", "2016-02-12 12:22:46.306671"], ["updated_at", "2016-02-12 12:22:46.306671"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 8"], ["color", "white"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 8"], ["customer_id", 8], ["created_at", "2016-02-12 12:22:46.406692"], ["updated_at", "2016-02-12 12:22:46.406692"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["first_name", "test8"], ["last_name", "8secomd"], ["phone", "2501744015"], ["email", "fcodetest8@yopmail.com"], ["address", "8 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:46.506711"], ["updated_at", "2016-02-12 12:22:46.506711"]]
+  [1m[36m (100.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 0"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 0"], ["customer_id", 9], ["created_at", "2016-02-12 12:22:46.616760"], ["updated_at", "2016-02-12 12:22:46.616760"]]
+  [1m[35m (115.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 1"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 1"], ["customer_id", 9], ["created_at", "2016-02-12 12:22:46.741757"], ["updated_at", "2016-02-12 12:22:46.741757"]]
+  [1m[36m (105.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 2"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 2"], ["customer_id", 9], ["created_at", "2016-02-12 12:22:46.851800"], ["updated_at", "2016-02-12 12:22:46.851800"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 3"], ["color", "red"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 3"], ["customer_id", 9], ["created_at", "2016-02-12 12:22:46.946802"], ["updated_at", "2016-02-12 12:22:46.946802"]]
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 4"], ["color", "red"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 4"], ["customer_id", 9], ["created_at", "2016-02-12 12:22:47.051849"], ["updated_at", "2016-02-12 12:22:47.051849"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 5"], ["color", "green"], ["last_servicing_date", "2016-01-13"], ["repair_part", "test part 5"], ["customer_id", 9], ["created_at", "2016-02-12 12:22:47.146837"], ["updated_at", "2016-02-12 12:22:47.146837"]]
+  [1m[36m (125.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "address", "last_visit_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["first_name", "test9"], ["last_name", "9secomd"], ["phone", "6081387530"], ["email", "fcodetest9@yopmail.com"], ["address", "9 second test address"], ["last_visit_date", "2016-02-12"], ["created_at", "2016-02-12 12:22:47.276863"], ["updated_at", "2016-02-12 12:22:47.276863"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 0"], ["color", "green"], ["last_servicing_date", "2016-01-14"], ["repair_part", "test part 0"], ["customer_id", 10], ["created_at", "2016-02-12 12:22:47.386905"], ["updated_at", "2016-02-12 12:22:47.386905"]]
+  [1m[36m (150.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 1"], ["color", "white"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 1"], ["customer_id", 10], ["created_at", "2016-02-12 12:22:47.542194"], ["updated_at", "2016-02-12 12:22:47.542194"]]
+  [1m[35m (135.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["car_model", "model 2"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 2"], ["customer_id", 10], ["created_at", "2016-02-12 12:22:47.687221"], ["updated_at", "2016-02-12 12:22:47.687221"]]
+  [1m[36m (215.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "cars" ("car_model", "color", "last_servicing_date", "repair_part", "customer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["car_model", "model 3"], ["color", "red"], ["last_servicing_date", "2016-01-15"], ["repair_part", "test part 3"], ["customer_id", 10], ["created_at", "2016-02-12 12:22:47.906758"], ["updated_at", "2016-02-12 12:22:47.906758"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.0ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "XKIQVOYQDA"]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 0"], ["created_at", "2016-02-12 12:22:48.016799"], ["updated_at", "2016-02-12 12:22:48.016799"], ["coupon_code", "XKIQVOYQDA"]]
+  [1m[35m (105.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-12"], ["coupon_id", 1], ["created_at", "2016-02-12 12:22:48.151826"], ["updated_at", "2016-02-12 12:22:48.151826"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.0ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "LITHQPBYFM"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 1"], ["created_at", "2016-02-12 12:22:48.251833"], ["updated_at", "2016-02-12 12:22:48.251833"], ["coupon_code", "LITHQPBYFM"]]
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-11"], ["coupon_id", 2], ["created_at", "2016-02-12 12:22:48.356849"], ["updated_at", "2016-02-12 12:22:48.356849"]]
+  [1m[35m (100.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.0ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "CPSKYLMERG"]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 2"], ["created_at", "2016-02-12 12:22:48.466868"], ["updated_at", "2016-02-12 12:22:48.466868"], ["coupon_code", "CPSKYLMERG"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-10"], ["coupon_id", 3], ["created_at", "2016-02-12 12:22:48.566890"], ["updated_at", "2016-02-12 12:22:48.566890"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCoupon Load (5.0ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "SJHHLPXCNPJE"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 3"], ["created_at", "2016-02-12 12:22:48.661913"], ["updated_at", "2016-02-12 12:22:48.661913"], ["coupon_code", "SJHHLPXCNPJE"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-09"], ["coupon_id", 4], ["created_at", "2016-02-12 12:22:48.761928"], ["updated_at", "2016-02-12 12:22:48.761928"]]
+  [1m[35m (105.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.0ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "CTCAZYMIQK"]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 4"], ["created_at", "2016-02-12 12:22:48.871955"], ["updated_at", "2016-02-12 12:22:48.871955"], ["coupon_code", "CTCAZYMIQK"]]
+  [1m[35m (85.0ms)[0m  commit transaction
+  [1m[36m (5.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-08"], ["coupon_id", 5], ["created_at", "2016-02-12 12:22:48.971969"], ["updated_at", "2016-02-12 12:22:48.971969"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.0ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "IPJZVHNCZUJNG"]]
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 5"], ["created_at", "2016-02-12 12:22:49.061989"], ["updated_at", "2016-02-12 12:22:49.061989"], ["coupon_code", "IPJZVHNCZUJNG"]]
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-07"], ["coupon_id", 6], ["created_at", "2016-02-12 12:22:49.162036"], ["updated_at", "2016-02-12 12:22:49.162036"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-07"], ["coupon_id", 6], ["created_at", "2016-02-12 12:22:49.262054"], ["updated_at", "2016-02-12 12:22:49.262054"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-07"], ["coupon_id", 6], ["created_at", "2016-02-12 12:22:49.362046"], ["updated_at", "2016-02-12 12:22:49.362046"]]
+  [1m[35m (105.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.0ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "KLKXNAPYDJAIY"]]
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 6"], ["created_at", "2016-02-12 12:22:49.467074"], ["updated_at", "2016-02-12 12:22:49.467074"], ["coupon_code", "KLKXNAPYDJAIY"]]
+  [1m[35m (101.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-06"], ["coupon_id", 7], ["created_at", "2016-02-12 12:22:49.583623"], ["updated_at", "2016-02-12 12:22:49.583623"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-06"], ["coupon_id", 7], ["created_at", "2016-02-12 12:22:49.683643"], ["updated_at", "2016-02-12 12:22:49.683643"]]
+  [1m[35m (90.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.0ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "PVGODYL"]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 7"], ["created_at", "2016-02-12 12:22:49.778661"], ["updated_at", "2016-02-12 12:22:49.778661"], ["coupon_code", "PVGODYL"]]
+  [1m[35m (85.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-05"], ["coupon_id", 8], ["created_at", "2016-02-12 12:22:49.873688"], ["updated_at", "2016-02-12 12:22:49.873688"]]
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCoupon Load (0.0ms)[0m  [1mSELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?[0m  [["coupon_code", "ZKOMTNZ"]]
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)  [["description", "Test Coupon description 8"], ["created_at", "2016-02-12 12:22:49.968727"], ["updated_at", "2016-02-12 12:22:49.968727"], ["coupon_code", "ZKOMTNZ"]]
+  [1m[36m (105.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-04"], ["coupon_id", 9], ["created_at", "2016-02-12 12:22:50.083750"], ["updated_at", "2016-02-12 12:22:50.083750"]]
+  [1m[35m (105.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-04"], ["coupon_id", 9], ["created_at", "2016-02-12 12:22:50.198746"], ["updated_at", "2016-02-12 12:22:50.198746"]]
+  [1m[36m (85.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["send_date", "2016-02-04"], ["coupon_id", 9], ["created_at", "2016-02-12 12:22:50.283764"], ["updated_at", "2016-02-12 12:22:50.283764"]]
+  [1m[35m (80.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCoupon Load (0.0ms)[0m  SELECT "coupons".* FROM "coupons" WHERE "coupons"."coupon_code" = ?  [["coupon_code", "IEUDPQGUGMI"]]
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "coupons" ("description", "created_at", "updated_at", "coupon_code") VALUES (?, ?, ?, ?)[0m  [["description", "Test Coupon description 9"], ["created_at", "2016-02-12 12:22:50.368776"], ["updated_at", "2016-02-12 12:22:50.368776"], ["coupon_code", "IEUDPQGUGMI"]]
+  [1m[35m (75.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "coupon_dates" ("send_date", "coupon_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["send_date", "2016-02-03"], ["coupon_id", 10], ["created_at", "2016-02-12 12:22:50.448792"], ["updated_at", "2016-02-12 12:22:50.448792"]]
+  [1m[36m (90.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for ::1 at 2016-02-12 07:23:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (4.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CustomersController#index as HTML
+Completed 401 Unauthorized in 92ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-02-12 07:23:31 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/devise-3.5.6/app/views/devise/shared/_links.html.erb (9.5ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/devise-3.5.6/app/views/devise/sessions/new.html.erb within layouts/application (112.1ms)
+Completed 200 OK in 4082ms (Views: 4036.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-603f330c29af013305325569c8c75d03d688963abd8cde4fffec17b5ce417bfb.css?body=1" for ::1 at 2016-02-12 07:23:35 -0500
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-2fe4f8a61d73606fbcb036b41f380591906a4da65a9eb5ec0a210fe6980b2ca7.css?body=1" for ::1 at 2016-02-12 07:23:35 -0500
+
+
+Started GET "/assets/bootstrap_and_overrides.self-2cb3834583dfbaf0a39c7139750bf963e05d79cbe811126997e013400be5d8dc.css?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/cars.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/customers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/coupons.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/dashboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/cars.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/dashboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/coupons.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/assets/customers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-12 07:23:36 -0500
+
+
+Started GET "/images/favicon.ico" for ::1 at 2016-02-12 07:23:36 -0500
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5.1) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5.1) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  c:/RailsInstaller/Ruby2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (103.1ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (63.8ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered c:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (145.9ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-02-12 07:24:01 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Shht22W/HFrYxjj8PiV4LkOHavCEFegE37SPntwuqpeVmahzev53UmYK8V5lnXqJvuj0cdiWD8jSx6fbCTB1qg==", "user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 232ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-02-12 07:24:01 -0500
+Processing by CustomersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCustomer Load (4.0ms)[0m  SELECT "customers".* FROM "customers"
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 3]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 4]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 5]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 6]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 7]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 8]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 9]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 10]]
+  Rendered customers/_customer_detail.html.erb (174.5ms)
+  Rendered customers/index.html.erb within layouts/application (187.0ms)
+Completed 200 OK in 590ms (Views: 523.4ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/customers/1" for ::1 at 2016-02-12 07:24:09 -0500
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCustomer Load (0.0ms)[0m  SELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered customers/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 170ms (Views: 130.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/customers/1/cars" for ::1 at 2016-02-12 07:24:12 -0500
+Processing by CustomersController#cars as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mCustomer Load (0.0ms)[0m  SELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1mSELECT "cars".* FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 1]]
+  Rendered customers/_car_detail.html.erb (0.0ms)
+  Rendered customers/cars.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 220ms (Views: 215.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cars/4" for ::1 at 2016-02-12 07:24:15 -0500
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCar Load (0.0ms)[0m  [1mSELECT  "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered cars/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 125ms (Views: 120.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/customers" for ::1 at 2016-02-12 07:24:18 -0500
+Processing by CustomersController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mCustomer Load (5.0ms)[0m  [1mSELECT "customers".* FROM "customers"[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 4]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 5]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 6]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 7]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 8]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?  [["customer_id", 9]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "cars" WHERE "cars"."customer_id" = ?[0m  [["customer_id", 10]]
+  Rendered customers/_customer_detail.html.erb (25.0ms)
+  Rendered customers/index.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 163ms (Views: 153.4ms | ActiveRecord: 5.0ms)

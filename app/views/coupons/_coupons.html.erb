@@ -1,0 +1,5 @@
+<tr>
+  <td><%=coupons.coupon_code%></td>
+  <td><%=coupons.description%></td>
+  <td><%= coupons.coupon_dates.map(&:send_date).join(", ") %></td>
+</tr>

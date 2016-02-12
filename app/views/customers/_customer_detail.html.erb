@@ -1,0 +1,10 @@
+<tr>
+  <td><%=customer_detail.first_name%></td>
+  <td><%=customer_detail.last_name%></td>
+  <td><%=customer_detail.email%></td>
+  <td><%=customer_detail.phone%></td>
+  <td><%=customer_detail.address%></td>
+  <td><%=customer_detail.last_visit_date%></td>
+  <td><%=customer_detail.cars.count%></td>
+  <td><%= link_to 'Show',  customer_path(customer_detail), class: 'btn btn-primary'%></td>
+</tr>

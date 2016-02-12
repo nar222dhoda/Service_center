@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  references: 
+  car_model: MyString
+  color: MyString
+  last_servicing_date: 2016-02-12
+  repair_part: MyText
+
+two:
+  references: 
+  car_model: MyString
+  color: MyString
+  last_servicing_date: 2016-02-12
+  repair_part: MyText

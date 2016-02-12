@@ -1,0 +1,17 @@
+<table class="table table-hover">
+   <thead>
+     <tr>
+       <th>Firstname</th>
+       <th>Lastname</th>
+       <th>Email</th>
+       <th>Phone</th>
+       <th>Address</th>
+       <th>Last Visit Date</th>
+       <th>Car(s)</th>
+       <th>#</th>
+     </tr>
+   </thead>
+   <tbody>
+    <%= render :partial => 'customer_detail', :collection => @customer %>
+   </tbody>
+ </table>
