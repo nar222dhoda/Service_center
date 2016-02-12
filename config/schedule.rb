@@ -20,11 +20,11 @@
 # Learn more: http://github.com/javan/whenever
 
 #scheduling the task on particular time
-every :day, :at => '04:13 pm' do
+every :day, :at => '09:13 am' do
   runner "Customer.next_servicing"
 end
 
-every :day, :at => '04:36 pm' do
+every :day, :at => '09:15 am' do
   runner "Coupon.offer_coupon"
 end
 
